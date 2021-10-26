@@ -1,0 +1,58 @@
+Clear
+Set DefaultBaseFrequency=50
+New object=circuit.baterka
+~ basekv=22 pu=1.00 MVAsc3=100 MVAsc1=40
+
+
+! Substation Transformer 
+New Transformer.SubXF Phases=3 Windings=2 %loadloss=1.475   %noloadloss=0.145
+~ wdg=1 bus=sourcebus conn=delta kv=22   kva=5500 %r=1 
+~ wdg=2 bus=799       conn=wye kv=0.4   kva=5500  %r=1
+
+! import line codes with phase impedance matrices
+
+
+New  loadshape.officeLoad npts=20000  minterval=15 UseActual=Yes   mult=(File=../create_loadshapes/office_building_loadshape_values.csv) 
+New  loadshape.industrialParkLoad npts=20000  minterval=15 UseActual=Yes   mult=(File=../create_loadshapes/industrial_park_loadshape_values.csv)
+New  loadshape.shopsLoad npts=20000  minterval=15 UseActual=Yes   mult=(File=../create_loadshapes/shops_loadshape_values.csv)
+! New  loadshape.batterycharge npts=20000  minterval=15   mult=(File=../create_loadshapes/baterrychargenighthours.csv)
+
+New  loadshape.fveLoad npts=20000  minterval=15   mult=(File=../create_loadshapes/fve_loadshape_values.csv)
+New  loadshape.mveLoad npts=20000  minterval=15   mult=(File=../create_loadshapes/mve_loadshape_values.csv)
+New  loadshape.wpgLoad npts=20000  minterval=15   mult=(File=../create_loadshapes/wpg_loadshape_values.csv)
+
+! Lines
+New Line.L1 Phases=3 Bus1=799.1.2.3  Bus2=701.1.2.3  R1=0.506 X1=0.3722 B1=3.105 R0=0.654 X0=1.5620 B0=1.37 Length=0.02
+New Line.L2 Phases=3 Bus1=701.1.2.3  Bus2=702.1.2.3  R1=0.506 X1=0.3722 B1=3.105 R0=0.654 X0=1.5620 B0=1.37  Length=0.05
+New Line.L3 Phases=3 Bus1=702.1.2.3  Bus2=703.1.2.3  R1=0.506 X1=0.3722 B1=3.105 R0=0.654 X0=1.5620 B0=1.37  Length=0.05
+New Line.L4 Phases=3 Bus1=703.1.2.3  Bus2=704.1.2.3  R1=0.506 X1=0.3722 B1=3.105 R0=0.654 X0=1.5620 B0=1.37  Length=0.05
+New Line.L5 Phases=3 Bus1=704.1.2.3  Bus2=705.1.2.3  R1=0.506 X1=0.3722 B1=3.105 R0=0.654 X0=1.5620 B0=1.37  Length=0.05
+New Line.L6 Phases=3 Bus1=703.1.2.3  Bus2=706.1.2.3  R1=0.506 X1=0.3722 B1=3.105 R0=0.654 X0=1.5620 B0=1.37  Length=0.05
+New Line.L7 Phases=3 Bus1=703.1.2.3  Bus2=707.1.2.3  R1=0.506 X1=0.3722 B1=3.105 R0=0.654 X0=1.5620 B0=1.37  Length=0.05
+New Line.L8 Phases=3 Bus1=704.1.2.3  Bus2=708.1.2.3  R1=0.506 X1=0.3722 B1=3.105 R0=0.654 X0=1.5620 B0=1.37  Length=0.05
+
+New Line.L9 Phases=3 Bus1=701.1.2.3   Bus2=709.1.2.3  R1=0.506 X1=0.3722 B1=3.105 R0=0.654 X0=1.5620 B0=1.37  Length=0.05
+New Line.L10 Phases=3 Bus1=709.1.2.3  Bus2=710.1.2.3 R1=0.506 X1=0.3722 B1=3.105 R0=0.654 X0=1.5620 B0=1.37  Length=0.05
+New Line.L11 Phases=3 Bus1=710.1.2.3  Bus2=711.1.2.3 R1=0.506 X1=0.3722 B1=3.105 R0=0.654 X0=1.5620 B0=1.37  Length=0.05
+New Line.L12 Phases=3 Bus1=709.1.2.3  Bus2=712.1.2.3 R1=0.506 X1=0.3722 B1=3.105 R0=0.654 X0=1.5620 B0=1.37  Length=0.05
+New Line.L13 Phases=3 Bus1=710.1.2.3  Bus2=713.1.2.3 R1=0.506 X1=0.3722 B1=3.105 R0=0.654 X0=1.5620 B0=1.37  Length=0.05
+New Line.L14 Phases=3 Bus1=711.1.2.3  Bus2=714.1.2.3 R1=0.506 X1=0.3722 B1=3.105 R0=0.654 X0=1.5620 B0=1.37  Length=0.05
+
+
+! Loads
+! New Load.officeBuilding Bus1=712 Phases=3 Conn=wye Model=1 kV=0.4  pf=0.98  daily=officeLoad Vminpu=0.5 Vmaxpu=3 enabled=yes
+! New Load.industrialPark Bus1=705 Phases=3 Conn=wye Model=1 kV=0.4  pf=0.98  daily=industrialParkLoad Vminpu=0.5 Vmaxpu=3 enabled=yes
+! New Load.shops Bus1=713 Phases=3 Conn=wye Model=1 kV=0.4 pf=0.98   daily=shopsLoad Vminpu=0.5 Vmaxpu=3 enabled=yes
+
+! Sources
+! New generator.fve Bus1=705 Phases=3 Conn=wye Model=1 kV=0.4 pf=0.98 kW=0.02 daily=fveLoad Vminpu=0.5 Vmaxpu=3 Enabled=yes
+! New generator.mve Bus1=701 Phases=3 Conn=wye Model=1 kV=0.4 pf=0.98 kW=0.06 daily=mveLoad Vminpu=0.5 Vmaxpu=3 enabled=yes
+! New generator.wpg Bus1=714 Phases=3 Conn=wye Model=1 kV=0.4 pf=0.98 kW=0.06 daily=wpgLoad Vminpu=0.5 Vmaxpu=3 enabled=yes
+
+
+Set VoltageBases = "22,0.4"
+CalcVoltageBases
+
+
+
+
