@@ -1,4 +1,4 @@
-# Migrogrid Cerebrum - William Brach, Masters Thesis
+# Microgrid Cerebrum - William Brach, Masters Thesis
 
 
 
