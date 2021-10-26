@@ -1,1 +1,4 @@
-# Migrogrid-cerebrum
+# Migrogrid Cerebrum - William Brach, Masters Thesis
+
+
+
