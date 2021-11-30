@@ -36,8 +36,8 @@ def multi_step_plot(history, true_future, prediction,STEP):
     plt.show()
     
 
-def validation_plots(history, number_of_plots, val_data, model):
-    plot_train_history(multi_step_history, 'Multi-Step Training and validation loss')
+def validation_plots(history, number_of_plots, val_data, model,STEP):
+    plot_train_history(history, 'Multi-Step Training and validation loss')
     
-    for x, y in val_data.take(10):
-        multi_step_plot(x[0], y[0], model.predict(x)[0])
+    for x, y in val_data.take(number_of_plots):
+        multi_step_plot(x[0], y[0], model.predict(x)[0],STEP)

@@ -23,8 +23,8 @@ def multivariate_data(dataset, target, start_index, end_index, history_size,
     return np.array(data), np.array(labels)
 
 
-def preprocess_data_for_LSTM(df,features,past_history, future_target, STEP)
-    features = df[features_considered]
+def preprocess_data_for_LSTM(df,features,past_history, future_target, STEP, TRAIN_SPLIT,BATCH_SIZE,BUFFER_SIZE):
+    features = df[features]
     features.index = df['date']
     
     dataset = features.values
@@ -49,4 +49,4 @@ def preprocess_data_for_LSTM(df,features,past_history, future_target, STEP)
 
     val_data_multi = tf.data.Dataset.from_tensor_slices((x_val_multi, y_val_multi))
     val_data_multi = val_data_multi.batch(BATCH_SIZE).repeat()
-    return train_data_multi, val_data_multi
+    return train_data_multi, val_data_multi, x_train_multi,y_train_multi

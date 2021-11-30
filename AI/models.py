@@ -7,7 +7,7 @@ from keras.callbacks import CSVLogger, EarlyStopping
 import tensorflow as tf
 
 
-def build_model_BasicLSTM(pastHistory,number_of_features_x, number_of_predictions_y )
+def build_model_BasicLSTM(pastHistory,number_of_features_x, number_of_predictions_y ):
     model = Sequential()
     model.add(
             LSTM(
