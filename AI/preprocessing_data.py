@@ -20,7 +20,7 @@ def multivariate_data(dataset, target, start_index, end_index, history_size,
         else:
             labels.append(target[i:i+target_size])
 
-    return np.array(data), np.array(labels)
+    return np.array(data, dtype=np.float32), np.array(labels, dtype=np.float32)
 
 
 def preprocess_data_for_LSTM(df,features,past_history, future_target, STEP, TRAIN_SPLIT,BATCH_SIZE,BUFFER_SIZE):
@@ -44,9 +44,10 @@ def preprocess_data_for_LSTM(df,features,past_history, future_target, STEP, TRAI
            'Target usage to predict : {}'.format(y_train_multi[0].shape),
            sep='\n')
     
+    #https://stackoverflow.com/questions/61872417/what-does-train-data-cache-shufflebuffer-size-batchbatch-size-repeat-do
     train_data_multi = tf.data.Dataset.from_tensor_slices((x_train_multi, y_train_multi))
-    train_data_multi = train_data_multi.cache().shuffle(BUFFER_SIZE).batch(BATCH_SIZE).repeat()
-
+    train_data_multi = train_data_multi.cache().batch(BATCH_SIZE).repeat()
+    
     val_data_multi = tf.data.Dataset.from_tensor_slices((x_val_multi, y_val_multi))
     val_data_multi = val_data_multi.batch(BATCH_SIZE).repeat()
     return train_data_multi, val_data_multi, x_train_multi,y_train_multi

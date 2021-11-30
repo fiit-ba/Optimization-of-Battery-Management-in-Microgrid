@@ -1,0 +1,11 @@
+# Otazky
+
+1. Nejaky nazor ze preco mi neklasa val loss? A ak ano napad co zmenit?
+2. Multistep multiout help
+3. Multivariate vs Unvariate
+4. LSTM Tahm vs Relu
+5. Keras.Timedistributed ??????
+6. Bidirection N_steps_ahead == N_steps_backwards???
+7. Napad ako split v parallel LSTM? idealne jedny data pre consumption a druhe pre usage?
+    Sequencial vs Funcional
+8. Skusat robit vlastny attention mechanism?
