@@ -45,8 +45,20 @@ You can then use TimeDistributed to apply the same Conv2D layer to each of the 1
     je to potrebne? alebo staci ak najdem nejaky na internete
     nasiel som - https://github.com/philipperemy/keras-attention-mechanism
 *. Ako moc je zle mat batch size 1 pri LSTM
+    pri trenovani je lepsie mat vacsi batch size
 *. napad ako pekne vykreslit clustere?
+    plotly
+    nepouzit tvary ale farby
 *. Multistep multiout help
     asi to bude nejaka mala chyba ale
     X shape - (pocet riadkov, pocet stepov dopredu, pocet features)
     y shape - (pocet riadkov, pocet stepov dozadu, pocet features)
+    
+    
+Dokazeme jednou sieto modelovat celo rocny vyvoj alebo je lepsie sa specializovat na sezonne odchylky
+mixture of experts neural network, gating network
+jefrey hinton
+bidirectional lstm
+doplnit nie covidove mesiace do datasetu
+tutorial na keras funcional api
+stvorcova chyba, pocitanie odchylky v casovom rade

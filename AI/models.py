@@ -43,6 +43,22 @@ def build_model_BasicLSTM_OneLayer(n_timesteps, n_features, n_outputs):
     print(model.summary())
     return model
 
+def build_model_BasicLSTM_Multiout(n_timesteps, n_features, n_outputs):
+    """
+    https://www.kaggle.com/nicapotato/keras-timeseries-multi-step-multi-output
+    """
+    model = Sequential()
+    model.add(LSTM(32, return_sequences=False,
+              input_shape=(n_timesteps, n_features)))
+
+    model.add(Dense(n_outputs))
+    model.add(Dense(n_outputs))
+    #batch_size ,192, 10,1
+    model.compile(optimizer=RMSprop(clipvalue=1.0), loss='mae')
+
+    print(model.summary())
+    return model
+
 
 def build_model_BasicLSTM_TwoDense(n_timesteps, n_features, n_outputs):
     """
