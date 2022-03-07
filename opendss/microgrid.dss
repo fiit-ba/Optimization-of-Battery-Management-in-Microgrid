@@ -17,9 +17,9 @@ New  loadshape.industrialParkLoad npts=20000  minterval=15 UseActual=Yes   mult=
 New  loadshape.shopsLoad npts=20000  minterval=15 UseActual=Yes   mult=(File=../data/consumption/loadshapes/shops_loadshape_values.csv)
 ! New  loadshape.batterycharge npts=20000  minterval=15   mult=(File=../create_loadshapes/baterrychargenighthours.csv)
 
-New  loadshape.fveLoad npts=20000  minterval=15   mult=(File=../data/production/loadshapes/fve_loadshape_values.csv)
-New  loadshape.mveLoad npts=20000  minterval=15   mult=(File=../data/production/loadshapes/mve_loadshape_values.csv)
-New  loadshape.wpgLoad npts=20000  minterval=15   mult=(File=../data/production/loadshapes/wpg_loadshape_values.csv)
+New  loadshape.fveLoad npts=20000  minterval=15   mult=(File=../data/production/loadshapes/FVE_loadshape_values.csv)
+New  loadshape.mveLoad npts=20000  minterval=15   mult=(File=../data/production/loadshapes/MVE_loadshape_values.csv)
+New  loadshape.wpgLoad npts=20000  minterval=15   mult=(File=../data/production/loadshapes/WPG_loadshape_values.csv)
 
 ! Lines
 New Line.L1 Phases=3 Bus1=799.1.2.3  Bus2=701.1.2.3  R1=0.506 X1=0.3722 B1=3.105 R0=0.654 X0=1.5620 B0=1.37 Length=0.02
