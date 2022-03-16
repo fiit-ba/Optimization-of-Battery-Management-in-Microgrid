@@ -1,0 +1,64 @@
+# Otazky
+
+*. Existuje nieco co zlepsim aby mi pri trenovani siel Validation loss dole? Lebo v kazdom pripade neklasa podla mna dostatocne rychlo.
+    Je to dolezite?
+    
+*. Multivariate vs Unvariate
+    Univariate time series: Only one variable is varying over time. For example, data collected from a sensor measuring the temperature of a room every second. Therefore, each second, you will only have a one-dimensional value, which is the temperature.
+
+    Multivariate time series: Multiple variables are varying over time. For example, a tri-axial accelerometer. There are three accelerations, one for each axis (x,y,z) and they vary simultaneously over time.
+
+    Napriklad keby som  robil LSTM s jednym output tak moze byt uni / multi ale pri multioutput tak je stale multi? 
+
+*. LSTM Tahm vs Relu
+    TF s GPU acc podporuje len Tahm. 
+    Tahm trpi na - Vanishing Gradients problem, ktory ReLu odstranuje. Ako sa tento problem riesi pri LSTM?
+    
+    RNNs can suffer from both exploding gradient and vanishing gradient problems. When the sequence to learn is long, then this can be a very delicate balance tipping into one or the other quite easily. Both problems are caused by exponentiation - each layer multiplies by weight matrix and derivative of activation, so if either the matrix magnitude or activation derivative is different from 1.0, there will be a tendency towards exploding or vanishing.
+
+ReLUs do not help with exploding gradient problems. In fact they can be worse than activation functions which are naturally limited when weights are large such as sigmoid or tanh.
+
+ReLUs do help with vanishing gradient problems. However, the designs of LSTM and GRU cells are also intended to address the same problem (of dealing with learning from potentially weak signals many time steps away), and do so very effectively.
+
+For a simple RNN with short time series, there should be nothing wrong working with ReLU activation. To address the possibility of exploding gradients when training, you could look at gradient clipping (treating gradients outside of allowed range as being the min or max of that range).
+    
+*. Keras.Timedistributed 
+    https://keras.io/api/layers/recurrent_layers/time_distributed/
+    This wrapper allows to apply a layer to every temporal slice of an input.
+
+Every input should be at least 3D, and the dimension of index one of the first input will be considered to be the temporal dimension.
+
+Consider a batch of 32 video samples, where each sample is a 128x128 RGB image with channels_last data format, across 10 timesteps. The batch input shape is (32, 10, 128, 128, 3).
+
+You can then use TimeDistributed to apply the same Conv2D layer to each of the 10 timesteps, independently:
+    
+*. Bidirection N_steps_ahead == N_steps_backwards
+    Pocet predikovanych krokov musi byt rovnaky ako pocet krokov dozadu?
+
+*. Parallel LSTM 
+    Len keras.functional da sa v Sequencial?
+    Split dat 
+        Vsetky data split na prvu polovicu a druhu (mozno split podla rocnych obdobi)
+        Do jednej LSTM vojde len comsumption a do druhej production
+    Sequencial vs Funcional
+*. Skusat robit vlastny attention mechanism?
+    je to potrebne? alebo staci ak najdem nejaky na internete
+    nasiel som - https://github.com/philipperemy/keras-attention-mechanism
+*. Ako moc je zle mat batch size 1 pri LSTM
+    pri trenovani je lepsie mat vacsi batch size
+*. napad ako pekne vykreslit clustere?
+    plotly
+    nepouzit tvary ale farby
+*. Multistep multiout help
+    asi to bude nejaka mala chyba ale
+    X shape - (pocet riadkov, pocet stepov dopredu, pocet features)
+    y shape - (pocet riadkov, pocet stepov dozadu, pocet features)
+    
+    
+Dokazeme jednou sieto modelovat celo rocny vyvoj alebo je lepsie sa specializovat na sezonne odchylky
+mixture of experts neural network, gating network
+jefrey hinton
+bidirectional lstm
+doplnit nie covidove mesiace do datasetu
+tutorial na keras funcional api
+stvorcova chyba, pocitanie odchylky v casovom rade
