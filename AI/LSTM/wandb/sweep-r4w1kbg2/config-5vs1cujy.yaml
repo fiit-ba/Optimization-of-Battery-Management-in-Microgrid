@@ -1,0 +1,20 @@
+wandb_version: 1
+
+convSize:
+  value: 32
+dropOut:
+  value: 0.1
+epochs:
+  value: 1
+epochs_steps:
+  value: 1
+init_learning_rate:
+  value: 0.07274754130093543
+leakyR1:
+  value: 0.09701651873092376
+leakyR2:
+  value: 0.9965970308878866
+lstm1Size:
+  value: 32
+lstm2Size:
+  value: 16

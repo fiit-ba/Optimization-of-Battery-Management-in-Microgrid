@@ -40,19 +40,19 @@ New Line.L14 Phases=3 Bus1=711.1.2.3  Bus2=714.1.2.3 R1=0.506 X1=0.3722 B1=3.105
 
 
 ! Loads
-New Load.officeBuilding Bus1=712 Phases=3 Conn=wye Model=1 kV=0.4  pf=0.98  daily=officeLoad Vminpu=0.5 Vmaxpu=3 enabled=yes
-New Load.industrialPark Bus1=705 Phases=3 Conn=wye Model=1 kV=0.4  pf=0.98  daily=industrialParkLoad Vminpu=0.5 Vmaxpu=3 enabled=yes
-New Load.shops Bus1=713 Phases=3 Conn=wye Model=1 kV=0.4 pf=0.98   daily=shopsLoad Vminpu=0.5 Vmaxpu=3 enabled=yes
+!New Load.officeBuilding Bus1=712 Phases=3 Conn=wye Model=1 kV=0.4  pf=0.98  daily=officeLoad Vminpu=0.5 Vmaxpu=3 enabled=Yes
+!New Load.industrialPark Bus1=705 Phases=3 Conn=wye Model=1 kV=0.4  pf=0.98  daily=industrialParkLoad Vminpu=0.5 Vmaxpu=3 enabled=Yes
+!New Load.shops Bus1=713 Phases=3 Conn=wye Model=1 kV=0.4 pf=0.98   daily=shopsLoad Vminpu=0.5 Vmaxpu=3 enabled=Yes
 
 ! Sources
-New generator.fve Bus1=705 Phases=3 Conn=wye Model=1 kV=0.4 pf=0.98 kW=0.02 daily=fveLoad Vminpu=0.5 Vmaxpu=3 Enabled=yes
-New generator.mve Bus1=701 Phases=3 Conn=wye Model=1 kV=0.4 pf=0.98 kW=0.06 daily=mveLoad Vminpu=0.5 Vmaxpu=3 enabled=yes
-New generator.wpg Bus1=714 Phases=3 Conn=wye Model=1 kV=0.4 pf=0.98 kW=0.06 daily=wpgLoad Vminpu=0.5 Vmaxpu=3 enabled=yes
+!New generator.fve Bus1=705 Phases=3 Conn=wye Model=1 kV=0.4 pf=0.98 daily=fveLoad Vminpu=0.5 Vmaxpu=3 enabled=Yes
+!New generator.mve Bus1=701 Phases=3 Conn=wye Model=1 kV=0.4 pf=0.98 daily=mveLoad Vminpu=0.5 Vmaxpu=3 enabled=Yes
+!New generator.wpg Bus1=714 Phases=3 Conn=wye Model=1 kV=0.4 pf=0.98 daily=wpgLoad Vminpu=0.5 Vmaxpu=3 enabled=Yes
 
-New storage.baterry bus=701 kV=0.4 Phases=3 kwRated=10 kWhrated=100 kWhstored=0 vminpu=0.80 vmaxpu=1.20  %reserve=1  %effcharge=100   %effdischarge=100   %IdlingkW=0   enabled=yes
+!New storage.baterry bus=701 kV=0.4 Phases=3 kwRated=50 kWhrated=500 kWhstored=0 vminpu=0.80 vmaxpu=1.20  %reserve=1  %effcharge=100   %effdischarge=100   %IdlingkW=0   enabled=yes
 
-New Monitor.baterry  element=storage.baterry   mode=3
-New Monitor.trafo  element=Line.L1  ppolar=no mode=65 enabled=yes
+!New Monitor.battery  element=storage.baterry   mode=3
+!New Monitor.trafo  element=Line.L1  ppolar=no mode=65 enabled=yes
 
 Set VoltageBases = "22,0.4"
 CalcVoltageBases

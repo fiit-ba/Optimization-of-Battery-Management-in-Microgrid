@@ -1,0 +1,57 @@
+wandb_version: 1
+
+_wandb:
+  desc: null
+  value:
+    cli_version: 0.12.11
+    framework: keras
+    is_jupyter_run: true
+    is_kaggle_kernel: false
+    python_version: 3.8.12
+    start_time: 1648626323
+    t:
+      1:
+      - 2
+      - 3
+      - 5
+      2:
+      - 2
+      - 3
+      - 5
+      3:
+      - 2
+      - 3
+      - 8
+      4: 3.8.12
+      5: 0.12.11
+      8:
+      - 1
+      - 4
+      - 5
+convSize:
+  desc: null
+  value: 32
+dropOut:
+  desc: null
+  value: 0.3
+epochs:
+  desc: null
+  value: 10
+epochs_steps:
+  desc: null
+  value: 200
+init_learning_rate:
+  desc: null
+  value: 0.04138891957720906
+leakyR1:
+  desc: null
+  value: 0.11666228172342884
+leakyR2:
+  desc: null
+  value: 0.44703681391525174
+lstm1Size:
+  desc: null
+  value: 64
+lstm2Size:
+  desc: null
+  value: 512
