@@ -1,3 +1,3 @@
-# Microgrid Cerebrum - William Brach, Masters Thesis
+# Optimization of Battery Management in Microgrid with LSTM+Kmeans
 
 
